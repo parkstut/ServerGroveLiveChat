@@ -1,3 +1,9 @@
+What this fork do?
+------------------
+
+This fork is first attempt to migrate great, but abandoned ServerGroveLiveChat to Symfony 2.2.
+
+
 What is ServerGroveLiveChat?
 ----------------------------
 
@@ -74,6 +80,7 @@ Please contact us before starting a new feature to make sure there is no effort 
 Todo
 ----
 
+* Admin panel
 * Integration with Jabber for new chats alerts
 * Additional documentation
 * Bug fixes
