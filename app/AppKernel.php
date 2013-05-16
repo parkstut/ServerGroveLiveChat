@@ -17,7 +17,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Symfony\Bundle\DoctrineBundle\DoctrineBundle(),
             //new Symfony\Bundle\DoctrineMigrationsBundle\DoctrineMigrationsBundle(),
-            new Symfony\Bundle\DoctrineMongoDBBundle\DoctrineMongoDBBundle(),
+            new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
 
             // register your bundles
             new ServerGrove\SGLiveChatBundle\SGLiveChatBundle());

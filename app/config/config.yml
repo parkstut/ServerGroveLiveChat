@@ -17,17 +17,20 @@ twig.config:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
 
-doctrine_odm.mongodb:
-  server: mongodb://localhost:27017
-  default_database: livechat
-  options:
-    connect: true
-  metadata_cache_driver: array # array, apc, xcache, memcache
-  auto_generate_hydrator_classes: true
-  auto_generate_proxy_classes: true
-  mappings:
-    SGLiveChatBundle: ~
-    
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options: {}
+    default_database: livechat
+    auto_generate_hydrator_classes: true
+    document_managers:
+        default:
+            auto_mapping: true
+            metadata_cache_driver: array # array, apc, xcache, memcache
+            mappings:
+              SGLiveChatBundle: ~
+   
 ## Doctrine Configuration
 #doctrine:
 #   dbal:
