@@ -2,10 +2,12 @@
 
 namespace ServerGrove\SGLiveChatBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
 /**
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:Document(
+ * @mongodb\Document(
  * collection="visitor",
  * repositoryClass="ServerGrove\SGLiveChatBundle\Document\VisitorRepository"
  * )
@@ -15,30 +17,30 @@ class Visitor extends User
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $agent;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $key;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $remoteAddr;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $languages;
 
     /**
-     * @mongodb:ReferenceMany(targetDocument="Visit")
+     * @MongoDB\ReferenceMany(targetDocument="Visit")
      */
     private $visits = array();
 

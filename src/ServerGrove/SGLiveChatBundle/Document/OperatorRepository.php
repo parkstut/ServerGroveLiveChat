@@ -59,4 +59,9 @@ class OperatorRepository extends DocumentRepository implements UserProviderInter
         return $class == 'Operator';
     }
 
+    public function refreshUser(\Symfony\Component\Security\Core\User\UserInterface $user)
+    {
+
+    }
+
 }

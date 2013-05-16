@@ -3,52 +3,52 @@
 namespace ServerGrove\SGLiveChatBundle\Document;
 
 use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
-use Symfony\Component\Security\Core\User\AccountInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use ServerGrove\SGLiveChatBundle\Document\Operator\Department;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 
 /**
  * Description of Operator
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:Document(
+ * @MongoDB\Document(
  * collection="operator",
  * repositoryClass="ServerGrove\SGLiveChatBundle\Document\OperatorRepository"
  * )
- * @mongodb:InheritanceType("SINGLE_COLLECTION")
- * @mongodb:DiscriminatorField(fieldName="type")
- * @mongodb:DiscriminatorMap({"admin"="Administrator", "operator"="Operator"})
- * @mongodb:HasLifecycleCallbacks
+ * @MongoDB\InheritanceType("SINGLE_COLLECTION")
+ * @MongoDB\DiscriminatorField(fieldName="type")
+ * @MongoDB\DiscriminatorMap({"admin"="Administrator", "operator"="Operator"})
  */
-class Operator extends User implements AccountInterface, PasswordEncoderInterface
+class Operator extends User implements UserInterface, PasswordEncoderInterface
 {
 
     /**
      * @var boolean
-     * @mongodb:Field(type="boolean")
+     * @MongoDB\Field(type="boolean")
      */
     private $isOnline;
 
     /**
      * @var boolean
-     * @mongodb:Field(type="boolean")
+     * @MongoDB\Field(type="boolean")
      */
     private $isActive;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $passwd;
 
     /**
      * @var ServerGrove\SGLiveChatBundle\Document\Operator\Rating
-     * @mongodb:ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Rating")
+     * @MongoDB\ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Rating")
      */
     private $ratings = array();
 
     /**
      * @var Department[]
-     * @mongodb:ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Department")
+     * @MongoDB\ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Department")
      */
     private $departments;
 

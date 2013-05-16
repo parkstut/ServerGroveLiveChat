@@ -6,9 +6,9 @@ namespace ServerGrove\SGLiveChatBundle\Document;
  * Description of Message
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:EmbeddedDocument
- * @mongodb:HasLifecycleCallbacks
+ * @MongoDB\EmbeddedDocument
  */
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use Doctrine\ODM\MongoDB\Mapping\Date;
 
 class Message
@@ -16,36 +16,36 @@ class Message
 
     /**
      * @var integer
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
 
     /**
      * @var User
-     * @mongodb:ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\User")
+     * @MongoDB\ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\User")
      */
     private $sender;
 
     /**
      * @var Session
-     * @mongodb:ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\Session")
+     * @MongoDB\ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\Session")
      */
     private $session;
 
     /**
      * @var string
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $createdAt;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $content;
 
     /**
-     * @mongodb:PrePersist
+     * @MongoDB\PrePersist
      */
     public function registerCreatedDate()
     {

@@ -2,48 +2,49 @@
 
 namespace ServerGrove\SGLiveChatBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
 /**
  * Description of User
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:Document
- * @mongodb:InheritanceType("COLLECTION_PER_CLASS")
- * @mongodb:HasLifecycleCallbacks
+ * @MongoDB\Document
+ * @MongoDB\InheritanceType("COLLECTION_PER_CLASS")
  */
 abstract class User
 {
     /**
      * @var integer
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $name;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $email;
 
     /**
      * @var string
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $createdAt;
 
     /**
      * @var string
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $updatedAt;
 
     /**
-     * @mongodb:PrePersist
+     * @MongoDB\PrePersist
      */
     public function registerCreatedDate()
     {
@@ -52,7 +53,7 @@ abstract class User
     }
 
     /**
-     * @mongodb:PreUpdate
+     * @MongoDB\PreUpdate
      */
     public function registerUpdatedDate()
     {

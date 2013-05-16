@@ -4,33 +4,34 @@ namespace ServerGrove\SGLiveChatBundle\Document\Operator;
 
 use ServerGrove\SGLiveChatBundle\Document\Operator;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * Description of Department
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:Document(collection="operator_department")
+ * @MongoDB\Document(collection="operator_department")
  */
 class Department
 {
 
     /**
      * @var integer
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $name;
     /**
      * @var boolean
-     * @mongodb:Field(type="boolean")
+     * @MongoDB\Field(type="boolean")
      */
     private $isActive;
     /**
      * @var \ServerGrove\SGLiveChatBundle\Document\Operator[]
-     * @mongodb:ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator")
+     * @MongoDB\ReferenceMany(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator")
      */
     private $operators = array();
 

@@ -2,15 +2,15 @@
 
 namespace ServerGrove\SGLiveChatBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * Description of Session
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:Document(
+ * @MongoDB\Document(
  * collection="chat_session",
  * repositoryClass="ServerGrove\SGLiveChatBundle\Document\SessionRepository"
  * )
- * @mongodb:HasLifecycleCallbacks
  */
 class Session
 {
@@ -39,73 +39,73 @@ class Session
 
     /**
      * @var integer
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $sessionId;
 
     /**
      * @var string
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $createdAt;
 
     /**
      * @var string
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $updatedAt;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $remoteAddr;
 
     /**
      * @var Operator
-     * @mongodb:ReferenceOne(targetDocument="Visitor")
+     * @MongoDB\ReferenceOne(targetDocument="Visitor")
      */
     private $visitor;
 
     /**
      * @var Operator
-     * @mongodb:ReferenceOne(targetDocument="Operator")
+     * @MongoDB\ReferenceOne(targetDocument="Operator")
      */
     private $operator;
 
     /**
      * @var Operator
-     * @mongodb:ReferenceOne(targetDocument="Visit")
+     * @MongoDB\ReferenceOne(targetDocument="Visit")
      */
     private $visit;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $question;
 
     /**
      * @var integer
-     * @mongodb:Field(type="int")
+     * @MongoDB\Field(type="int")
      */
     private $statusId;
 
     /**
      * @var ChatMessage[]
-     * @mongodb:EmbedMany(targetDocument="Message")
+     * @MongoDB\EmbedMany(targetDocument="Message")
      */
     private $messages = array();
 
     /**
      * @var ServerGrove\SGLiveChatBundle\Document\Operator\Rating
-     * @mongodb:ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Rating")
+     * @MongoDB\ReferenceOne(targetDocument="ServerGrove\SGLiveChatBundle\Document\Operator\Rating")
      */
     private $rating;
 
@@ -115,7 +115,7 @@ class Session
     }
 
     /**
-     * @mongodb:PrePersist
+     * @MongoDB\PrePersist
      */
     public function registerFirstMessage()
     {
@@ -124,7 +124,7 @@ class Session
     }
 
     /**
-     * @mongodb:PreUpdate
+     * @MongoDB\PreUpdate
      */
     public function registerUpdatedDate()
     {
@@ -132,7 +132,7 @@ class Session
     }
 
     /**
-     * @mongodb:PrePersist
+     * @MongoDB\PrePersist
      */
     public function registerCreatedDate()
     {

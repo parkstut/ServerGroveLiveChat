@@ -2,38 +2,39 @@
 
 namespace ServerGrove\SGLiveChatBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+
 /**
  * Description of VisitHit
  *
  * @author Ismael Ambrosi<ismael@servergrove.com>
- * @mongodb:EmbeddedDocument
- * @mongodb:HasLifecycleCallbacks
+ * @MongoDB\EmbeddedDocument
  */
 class VisitHit
 {
 
     /**
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
 
     /**
-     * @mongodb:Date
+     * @MongoDB\Date
      */
     private $createdAt;
 
     /**
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $referer;
 
     /**
-     * @mongodb:ReferenceOne(targetDocument="VisitLink")
+     * @MongoDB\ReferenceOne(targetDocument="VisitLink")
      */
     private $visitLink;
 
     /**
-     * @mongodb:PrePersist
+     * @MongoDB\PrePersist
      */
     public function registerCreatedDate()
     {

@@ -2,11 +2,12 @@
 
 namespace ServerGrove\SGLiveChatBundle\Document;
 
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 /**
  * Description of Session
  *
  * @author Pablo Godel<pablo@servergrove.com>
- * @mongodb:Document(
+ * @MongoDB\Document(
  * collection="cache",
  * repositoryClass="ServerGrove\SGLiveChatBundle\Document\CacheRepository"
  * )
@@ -16,25 +17,25 @@ class CacheEntry
 
     /**
      * @var integer
-     * @mongodb:Id
+     * @MongoDB\Id
      */
     private $id;
 
     /**
      * @var string
-     * @mongodb:String @Index(unique=true, order="asc")
+     * @MongoDB\String @MongoDB\Index(unique=true, order="asc")
      */
     private $key;
 
     /**
      * @var string
-     * @mongodb:String
+     * @MongoDB\String
      */
     private $data;
 
     /**
      * @var int
-     * @mongodb:int
+     * @MongoDB\int
      */
     private $expires;
 
