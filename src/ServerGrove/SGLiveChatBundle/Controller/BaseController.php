@@ -72,15 +72,6 @@ abstract class BaseController extends Controller
     }
 
     /**
-     * @return Symfony\Component\HttpFoundation\Response
-     */
-    public function redirect($url, $status = 302)
-    {
-        $this->getResponse()->setRedirect($url, $status);
-        return $this->getResponse();
-    }
-
-    /**
      * @return ServerGrove\SGLiveChatBundle\Document\Operator
      */
     protected function getOperator()

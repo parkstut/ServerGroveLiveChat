@@ -2,7 +2,7 @@
 
 namespace ServerGrove\SGLiveChatBundle\Command;
 
-use Symfony\Bundle\FrameworkBundle\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand as Command;
 
 /**
  * @author Ismael Ambrosi<ismael@servergrove.com>

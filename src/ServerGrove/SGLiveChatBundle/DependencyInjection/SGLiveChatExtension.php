@@ -6,6 +6,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\Config\FileLocator;
 
 /**
  * Description of SGLiveChatExtension
@@ -15,9 +16,9 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 class SGLiveChatExtension extends Extension
 {
 
-    public function configLoad(array $config, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container)
     {
-        $this->loadDefaults($config, $container);
+        $this->loadDefaults($configs, $container);
     }
 
     /**
@@ -28,7 +29,7 @@ class SGLiveChatExtension extends Extension
      */
     protected function loadDefaults(array $config, ContainerBuilder $container)
     {
-        $loader = new XmlFileLoader($container, __DIR__ . '/../Resources/config');
+        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('livechat.xml');
 
         // Allow these application configuration options to override the defaults
@@ -52,7 +53,7 @@ class SGLiveChatExtension extends Extension
 
     public function getAlias()
     {
-        return 'sglivechat';
+        return 'sg_live_chat';
     }
 
     public function getNamespace()
