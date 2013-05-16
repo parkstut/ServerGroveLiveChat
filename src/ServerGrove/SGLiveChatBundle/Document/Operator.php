@@ -126,7 +126,7 @@ class Operator extends User implements UserInterface, PasswordEncoderInterface
         return 'Operator';
     }
 
-    # -- AccountInterface implementation ----------------
+    # -- UserInterface implementation ----------------
 
 
     /**
@@ -141,10 +141,10 @@ class Operator extends User implements UserInterface, PasswordEncoderInterface
     }
 
     /**
-     * @param AccountInterface $account
+     * @param UserInterface $account
      * @return boolean
      */
-    public function equals(AccountInterface $account)
+    public function equals(UserInterface $account)
     {
         return $account instanceof Operator && $account->getId() == $this->getId();
     }

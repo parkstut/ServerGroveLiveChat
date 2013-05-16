@@ -105,7 +105,7 @@ class ChatController extends PublicController
             return $this->redirect($this->generateUrl('sglc_chat_load', array(
                 'id' => $chatSession->getId())));
         }
-
+            
         return $this->renderTemplate('SGLiveChatBundle:Chat:index.html.twig', array(
             'visitor' => $visitor,
             'errorMsg' => $this->getSessionStorage()->getFlash('errorMsg', null)));

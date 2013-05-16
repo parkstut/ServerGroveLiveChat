@@ -3,7 +3,7 @@
 namespace ServerGrove\SGLiveChatBundle\Document;
 
 
-use Symfony\Component\Security\Core\User\AccountInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Doctrine\ODM\MongoDB\DocumentRepository;
 use ServerGrove\SGLiveChatBundle\Document\Operator;
@@ -21,7 +21,7 @@ class OperatorRepository extends DocumentRepository implements UserProviderInter
     /**
      * @return ServerGrove\SGLiveChatBundle\Document\Operator
      */
-    public function loadUserByAccount(AccountInterface $user)
+    public function loadUserByAccount(UserInterface $user)
     {
         if (($user instanceof Operator)) {
             return $user;
