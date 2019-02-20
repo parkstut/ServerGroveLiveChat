@@ -5,7 +5,7 @@ namespace ServerGrove\SGLiveChatBundle\Document;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Doctrine\ODM\MongoDB\DocumentRepository;
+use Doctrine\ODM\MongoDB\Repository\DocumentRepository;
 use ServerGrove\SGLiveChatBundle\Document\Operator;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use MongoDate;

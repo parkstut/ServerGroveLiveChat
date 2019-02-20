@@ -1,56 +1,36 @@
-app.config:
-    charset:       UTF-8
-    error_handler: null
-    csrf_protection:
-        enabled: true
-        secret: xxxxxxxxxx
-    router:        { resource: "%kernel.root_dir%/config/routing.yml" }
-    validation:    { enabled: true, annotations: true }
-    templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
-    session:
-        default_locale: en
-        lifetime:       0 # Until browser is closed
-        auto_start:     true
-
-# Twig Configuration
-twig.config:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+framework:
+  secret: XXXXXXX
+  csrf_protection: ~
+  router:        { resource: "%kernel.root_dir%/config/routing.yml" }
+  validation:    { enable_annotations: true, strict_email: true}
+  templating:    { engines: ['twig'] } #assets_version: SomeVersionScheme
+  session:
+    # handler_id set to null will use default session handler from php.ini
+    handler_id:  ~
+twig:
+  debug:            %kernel.debug%
+  strict_variables: %kernel.debug%
 
 doctrine_mongodb:
-    connections:
-        default:
-            server: mongodb://localhost:27017
-            options: {}
-    default_database: livechat
-    auto_generate_hydrator_classes: true
-    document_managers:
-        default:
-            auto_mapping: true
-            metadata_cache_driver: array # array, apc, xcache, memcache
-            mappings:
-              SGLiveChatBundle: ~
-   
-## Doctrine Configuration
-#doctrine:
-#   dbal:
-#       dbname:   xxxxxxxx
-#       user:     xxxxxxxx
-#       password: ~
-#       logging:  %kernel.debug%
-#   orm:
-#       auto_generate_proxy_classes: %kernel.debug%
-#       mappings:
-#           HelloBundle: ~
+  connections:
+    default:
+      server: mongodb://localhost:27017
+      options: {}
+  default_database: livechat
+  auto_generate_hydrator_classes: true
+  document_managers:
+    default:
+      auto_mapping: true
+      metadata_cache_driver: array # array, apc, xcache, memcache
+      mappings:
+        SGLiveChatBundle: ~
 
-## Swiftmailer Configuration
-swiftmailer.config: ~
-#    transport:  smtp
-#    encryption: ssl
-#    auth_mode:  login
-#    host:       smtp.gmail.com
-#    username:   xxxxxxxx
-#    password:   xxxxxxxx
+#swiftmailer:
+#  transport: "%mailer_transport%"
+#  host:      "%mailer_host%"
+#  username:  "%mailer_user%"
+#  password:  "%mailer_password%"
+#  spool:     { type: memory }
 
-sglivechat.config:
+sg_live_chat:
   cache_engine: mongo

@@ -16,7 +16,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  * repositoryClass="ServerGrove\SGLiveChatBundle\Document\OperatorRepository"
  * )
  * @MongoDB\InheritanceType("SINGLE_COLLECTION")
- * @MongoDB\DiscriminatorField(fieldName="type")
+ * @MongoDB\DiscriminatorField("type")
  * @MongoDB\DiscriminatorMap({"admin"="Administrator", "operator"="Operator"})
  */
 class Operator extends User implements UserInterface, PasswordEncoderInterface
