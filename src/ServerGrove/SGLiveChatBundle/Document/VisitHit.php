@@ -19,12 +19,12 @@ class VisitHit
     private $id;
 
     /**
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
 
     /**
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $referer;
 

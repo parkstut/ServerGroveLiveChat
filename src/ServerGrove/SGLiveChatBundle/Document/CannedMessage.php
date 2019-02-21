@@ -20,23 +20,23 @@ class CannedMessage
     private $id;
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $content;
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      * @MongoDB\UniqueIndex(order="asc")
      */
     private $title;
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $updatedAt;
 

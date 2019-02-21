@@ -36,7 +36,7 @@ class Operator extends User implements UserInterface, PasswordEncoderInterface
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $passwd;
 

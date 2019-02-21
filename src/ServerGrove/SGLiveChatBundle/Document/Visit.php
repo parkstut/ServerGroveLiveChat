@@ -25,31 +25,31 @@ class Visit
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $key;
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $remoteAddr;
 
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
 
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $updatedAt;
 
     /**
      * @var int
-     * @MongoDB\Int
+     * @MongoDB\Field(type="int")
      */
     private $localTime;
 

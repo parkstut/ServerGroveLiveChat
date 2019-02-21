@@ -8,7 +8,6 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Doctrine\ODM\MongoDB\Repository\DocumentRepository;
 use ServerGrove\SGLiveChatBundle\Document\Operator;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
-use MongoDate;
 
 /**
  * Description of OperatorRepository

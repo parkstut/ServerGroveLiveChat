@@ -30,7 +30,7 @@ class VisitLink
     }
 
     /**
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $url;
 

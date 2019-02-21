@@ -45,25 +45,25 @@ class Session
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $sessionId;
 
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
 
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $updatedAt;
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $remoteAddr;
 
@@ -87,7 +87,7 @@ class Session
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $question;
 

@@ -25,7 +25,7 @@ abstract class BaseController extends Controller
     public function getRequest()
     {
         if (is_null($this->request)) {
-            $this->request = $this->get('request');
+            $this->request = $this->get('request_stack')->getCurrentRequest();
         }
         return $this->request;
     }

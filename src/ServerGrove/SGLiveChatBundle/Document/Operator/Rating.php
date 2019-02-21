@@ -27,12 +27,12 @@ class Rating
     private $grade;
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $comments;
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
     /**

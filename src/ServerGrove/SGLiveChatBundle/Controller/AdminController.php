@@ -2,10 +2,14 @@
 
 namespace ServerGrove\SGLiveChatBundle\Controller;
 
+use JMS\DiExtraBundle\Annotation\FormType;
 use ServerGrove\SGLiveChatBundle\Document\Operator\Department;
 use Doctrine\ODM\MongoDB\Mapping\Document;
+use ServerGrove\SGLiveChatBundle\Form\LoginForm;
 use ServerGrove\SGLiveChatBundle\Form\OperatorDepartmentForm;
 use ServerGrove\SGLiveChatBundle\Form\OperatorForm;
+use Symfony\Component\Form\FormConfigInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 use Symfony\Component\Security\SecurityContext;
 use Symfony\Component\Form\PasswordField;
@@ -26,10 +30,11 @@ class AdminController extends BaseController
 
     private function createLoginForm($operator = null)
     {
-        $form = new Form('login', array(
-                    'validator' => $this->get('validator')));
-        $form->add(new TextField('email'));
-        $form->add(new PasswordField('passwd'));
+//        $form = new Form('login', array('validator' => $this->get('validator')));
+//        $form = new Form('login', $operator, $this->get('validator'));
+//        $form->add(new TextField('email'));
+//        $form->add(new PasswordField('passwd'));
+        $form = $this->createForm(LoginForm::class, $operator);
 
         return $form;
     }
@@ -57,22 +62,21 @@ class AdminController extends BaseController
     }
 
     /**
-     * @todo Search about security in Symfony2
+     * Todo: research about security in Symfony3
      */
-    public function checkLoginAction()
+    public function checkLoginAction(Request $request)
     {
         $form = $this->createLoginForm(new Operator());
-        $form->bind($this->get('request'));
+        $form->handleRequest($request);
 
         if (!$form->isValid()) {
-
             return $this->redirect($this->generateUrl("_security_login", array(
                         'e' => __LINE__)));
         }
         try {
             /* @var $operator ServerGrove\SGLiveChatBundle\Document\Operator */
             $operator = $this->getDocumentManager()->getRepository('SGLiveChatBundle:Operator')->loadUserByUsername($form->get('email')->getDisplayedData());
-            if (!$operator->encodePassword($form->get('passwd')->getDisplayedData(), $operator->getSalt())) {
+            if (!$operator->encodePassword($form->get('plainPassword')->getDisplayedData(), $operator->getSalt())) {
                 throw new UsernameNotFoundException('Invalid password');
             }
 
@@ -100,12 +104,13 @@ class AdminController extends BaseController
 
     public function loginAction()
     {
-        $errorMsg = $this->getSessionStorage()->getFlash('_error');
+        $errorMsg = $this->getSessionStorage()->getFlashBag('_error');
         $form = $this->createLoginForm();
 
-        return $this->renderTemplate('SGLiveChatBundle:Admin:login.html.twig', array(
-            'form' => $form,
-            'errorMsg' => $errorMsg));
+        return $this->renderTemplate('SGLiveChatBundle:Admin:login.html.twig', [
+            'form' => $form->createView(),
+            'errorMsg' => $errorMsg,
+        ]);
     }
 
     public function logoutAction()

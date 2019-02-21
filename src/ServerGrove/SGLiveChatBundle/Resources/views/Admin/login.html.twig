@@ -4,16 +4,13 @@
     <div style="padding-left: 30px;padding-right: 30px;">
         <h3>Please enter your e-mail and password to access the admin panel</h3>
         <div>
-            {% if errorMsg %}
-            {{errorMsg}}
-            {% endif %}
-            {{ form_errors(form) }}
+            {{ form_start(form) }}
         </div>
         <div class="inputname">
             e-mail
         </div>
         <div class="inputbox">
-            {{ form_field(form.email) }}
+            {{ form_row(form.email) }}
         </div>
         <p>
         </p>
@@ -21,10 +18,10 @@
             Password
         </div>
         <div class="inputbox">
-            {{ form_field(form.passwd) }}
+            {{ form_row(form.passwd) }}
         </div>
         <p>
-            {{ form_hidden(form) }}
+            {{ form_end(form) }}
         </p>
         <input type="submit" value="Login" />
     </div>

@@ -23,19 +23,19 @@ class CacheEntry
 
     /**
      * @var string
-     * @MongoDB\String @MongoDB\Index(unique=true, order="asc")
+     * @MongoDB\Field(type="string") @MongoDB\Index(unique=true, order="asc")
      */
     private $key;
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $data;
 
     /**
      * @var int
-     * @MongoDB\int
+     * @MongoDB\Field(type="int")
      */
     private $expires;
 

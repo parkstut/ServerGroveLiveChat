@@ -9,7 +9,6 @@ namespace ServerGrove\SGLiveChatBundle\Document;
  * @MongoDB\EmbeddedDocument
  */
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
-use Doctrine\ODM\MongoDB\Mapping\Date;
 
 class Message
 {
@@ -34,13 +33,13 @@ class Message
 
     /**
      * @var string
-     * @MongoDB\Date
+     * @MongoDB\Field(type="date")
      */
     private $createdAt;
 
     /**
      * @var string
-     * @MongoDB\String
+     * @MongoDB\Field(type="string")
      */
     private $content;
 

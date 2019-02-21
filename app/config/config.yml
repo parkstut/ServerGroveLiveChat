@@ -1,4 +1,5 @@
 framework:
+  form: ~
   secret: XXXXXXX
   csrf_protection: ~
   router:        { resource: "%kernel.root_dir%/config/routing.yml" }
@@ -33,4 +34,4 @@ doctrine_mongodb:
 #  spool:     { type: memory }
 
 sg_live_chat:
-  cache_engine: mongo
+#  cache_engine: mongo # apc by default
