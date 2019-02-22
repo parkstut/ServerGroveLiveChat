@@ -1,7 +1,11 @@
 What this fork do?
 ------------------
 
-This fork is first attempt to migrate great, but abandoned ServerGroveLiveChat to Symfony 2.2.
+This fork is an attempt to migrate ServerGroveLiveChat'2010 to Symfony 3.4, php 7 - to explore example of using Doctrine ODM in chat application.
+
+Full application description and list of its features you can find <a href="https://symfony.com/blog/servergrove-livechat-application" target="_blank">here</a>.
+
+---
 
 
 What is ServerGroveLiveChat?
